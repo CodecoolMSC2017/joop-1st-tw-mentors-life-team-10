@@ -18,13 +18,9 @@ Students
 
 ## Constructors
 
-### `Person(String firstName, String lastName)`
+### `Person(String firstName, String lastName, int yearOfBirth, String gender)`
 
-The construnctor takes 2 argument matching to the fields. If firstName and lastName is not given by the user (empty), then raise exception.
-
-### `Persons(int yearOfBirth, String gender)`
-
-The construnctor takes 2 argument matching to the field. By default it`s null, gettin argument when called from the Mentors or Studnet subclass.
+The construnctor takes 4 argument matching to the fields. If firstName and lastName is not given by the user (empty), then raise exception.
 
 
 ## Instance methods
