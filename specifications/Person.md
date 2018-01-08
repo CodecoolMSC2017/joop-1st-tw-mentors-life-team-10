@@ -11,10 +11,10 @@ Mentors
 Students
 
 ## Fields
-`String firstName` This is the first name of the person, gotten from the terminal as an argument 
-`String lastName` This is the last name of the person, gotten from the terminal as an argument
-`int yearOfBirth` stores year of the birth of a given person
-`String gender (male/female/notsure :)` stores the gender of the person
+* `String firstName` This is the first name of the person, gotten from the terminal as an argument
+* `String lastName` This is the last name of the person, gotten from the terminal as an argument
+* `int yearOfBirth` stores year of the birth of a given person
+* `String gender (male/female/notsure :)` stores the gender of the person
 
 ## Constructors
 
