@@ -19,5 +19,8 @@ The constructor takes 3 argument for the matching fields.
 
 ## Instance methods
 
-`getFireQuality()` Returns the value of the `fireQuailty`.
-`getVisibility()` Returns the vale of the `visibility`.
+### `getFireQuality()`
+Returns the value of the `fireQuailty`.
+
+### `getVisibility()` 
+Returns the vale of the `visibility`.
