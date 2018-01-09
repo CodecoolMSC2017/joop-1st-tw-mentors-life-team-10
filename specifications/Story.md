@@ -10,7 +10,7 @@ This file should contain the description of your team's story to tell about a me
 
 ## Reading data from file
 
-public class ExampleStory {
+    public class Story{ 
 
     public static void main(String[] args) {
         String mentorFullName = args[0];
