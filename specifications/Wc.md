@@ -13,7 +13,7 @@ This should handle the liquid problems of any person.
 ## Constructor
 
 ### `public WC(String tool)`
-* `replacementTool` set to a given tool by the user (expect a string);
+* `replacementTool` set to a given `tool` got by the user (expect a string);
 * `toiletPaper` will be false by default;
 * `stinkLevel` will be 0 by default;
 * `beauty` will be false by default;
@@ -24,7 +24,8 @@ This should handle the liquid problems of any person.
 `setStinkLevel` Set the value of this variable to a given value.
 `setBeauty` Set the value of this variable to a given value.
 
-`getToiletPaper` Return with the value of the toiletPaper.
-`getStinkLevel` Return with the value of the stinkLevel.
-`getBeauty` Return with the value of the beauty.
+`getToiletPaper` Return with the value of the `toiletPaper`.
+`getStinkLevel` Return with the value of the `stinkLevel`.
+`getBeauty` Return with the value of the `beauty`.
+`getReplacementTool` Return with the value of the `replacementTool`
 
