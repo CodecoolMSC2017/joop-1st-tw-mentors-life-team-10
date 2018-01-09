@@ -10,7 +10,7 @@ None
 
 * `String[] food` Stores the food in the Codecool area.
 * `String[] foodFrom` Stores the food origin.
-* `boolean clean` Show that the kitchen clean or now. By default it's true.
+* `boolean clean` Show that the kitchen clean or not. By default it's true.
  
 ## Constructors
 

@@ -5,6 +5,9 @@
 
 This class contains the properties of the object on the yard(for the Yard class).
 
+## Parent class
+None
+
 ## Fields
 
 * `public String name` This stores the name of the the location

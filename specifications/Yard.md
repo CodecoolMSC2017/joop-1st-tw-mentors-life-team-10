@@ -3,6 +3,9 @@
 ## Description 
 This class handle person's beverage making attampt on the yard.
 
+## Parent class
+None
+
 ## Fields
 
 * `private HidingPlaces[] locations` This stores the available location objects, where a person could go.

@@ -3,6 +3,9 @@
 ## Description 
 This should handle the liquid problems of any person.
 
+## Parent class
+None
+
 ## Fields
 
 * `private boolean toiletPaper` This stores if there is toilet paper in the toilet or not. By defualt it's false.
