@@ -1,4 +1,4 @@
-# WC
+# Yard
 
 ## Description 
 This class handle person's beverage making attampt on the yard.
