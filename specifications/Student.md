@@ -9,8 +9,16 @@ Person
 ## Fields
 
 * `int knowledgeLevel` stores the knowledge level of the student in programming
-* `int energyLevel` current energy level
 
 ## Constructors
 
+### `Student(String firstName, String lastName, int yearOfBirth, String gender, int knowledgeLevel, int energyLevel)`
 
+super(firstName, lastName, yearOfBirth, gender, energyLevel)
+The knowledge level value 100 by default.
+
+## Instance Methods
+
+### `Student getKnowledgeLevel()`
+
+Get the knowledge level of the student in programming.

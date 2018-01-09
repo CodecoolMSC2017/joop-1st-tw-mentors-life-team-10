@@ -15,13 +15,13 @@ Students
 * `String lastName` This is the last name of the person, gotten from the terminal as an argument
 * `int yearOfBirth` stores year of the birth of a given person
 * `String gender (male/female/notsure :)` stores the gender of the person
+* `int energyLevel` current energy level
 
 ## Constructors
 
-### `Person(String firstName, String lastName, int yearOfBirth, String gender)`
+### `Person(String firstName, String lastName, int yearOfBirth, String gender, int energyLevel)`
 
-The construnctor takes 4 argument matching to the fields. If firstName and lastName is not given by the user (empty), then raise exception.
-
+The construnctor takes 5 argument matching to the fields. If firstName and lastName is not given by the user (empty), then raise exception.
 
 ## Instance methods
 
@@ -37,8 +37,6 @@ Return the age of a given person.
 
 Return the gender of the person.
 
+### `Student getEnergyLevel()`
 
-
-
-
-
+Get the energy level of the student in programing.
