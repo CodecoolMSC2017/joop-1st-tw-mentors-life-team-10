@@ -20,12 +20,12 @@ This should handle the liquid problems of any person.
 
 ## Instance methods
 
-`setToiletPaper`Set the value of this variable to a given value.
-`setStinkLevel` Set the value of this variable to a given value.
-`setBeauty` Set the value of this variable to a given value.
+### `setToiletPaper()`Set the value of this variable to a given value.
+### `setStinkLevel()` Set the value of this variable to a given value.
+### `setBeauty()` Set the value of this variable to a given value.
 
-`getToiletPaper` Return with the value of the `toiletPaper`.
-`getStinkLevel` Return with the value of the `stinkLevel`.
-`getBeauty` Return with the value of the `beauty`.
-`getReplacementTool` Return with the value of the `replacementTool`
+### `getToiletPaper()` Return with the value of the `toiletPaper`.
+### `getStinkLevel()` Return with the value of the `stinkLevel`.
+### `getBeauty()` Return with the value of the `beauty`.
+### `getReplacementTool()` Return with the value of the `replacementTool`
 
