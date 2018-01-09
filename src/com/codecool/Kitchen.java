@@ -40,8 +40,4 @@ public class Kitchen{
         System.out.println(food[n-1] + " from " + foodFrom[m-1]);
     }
 
-    public static void main(String[] args) {
-        Kitchen kitchen = new Kitchen();
-        kitchen.feedThePerson();
-    } 
 }
