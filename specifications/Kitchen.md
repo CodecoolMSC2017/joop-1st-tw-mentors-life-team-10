@@ -10,22 +10,29 @@ None
 
 * `String[] food` Stores the food in the Codecool area.
 * `String[] foodFrom` Stores the food origin.
-* `Boolean clean` Show that the kitchen clean or now. By default it's true.
+* `boolean clean` Show that the kitchen clean or now. By default it's true.
  
 ## Constructors
 
 ### `Kitchen()`
+* `String[] food` Initilazied with some pre coded places.
+* `String[] foodFrom` Initialized with some pre coded origin.
+* `boolean clean` Set to true.
 
 ## Instance Methods
 
-### `Kitchen isClean()`
+### `isClean()`
 
 Get the condition of the kitchen.
 
-### `Kitchen doTheDirtyJob()`
+### `eatLikeAPig()`
+
+Set the value of `clean` to false.
+
+### `doTheDirtyJob()`
 
 Set the kitchen condition to true.
 
-### `Kitchen feedThePerson()`
+### `feedThePerson()`
 
 The person get a random food from a random location.
