@@ -4,6 +4,10 @@
 
 This file should contain the description of your team's story to tell about a mentor's life @ Codecool.
 
+## import
+
+`import java.util.Scanner`
+
 ## Reading data from file
 
 public class ExampleStory {
@@ -82,17 +86,42 @@ public class ExampleStory {
 
         System.out.println("The mentor quickly bring out his compact emergency destillator from his backpack and a jar of fermented fruit").
         System.out.format("%s and %s jump out the window to the yard. Unfortunately they can't go more far, because they can live without the wifi range more then 30 seconds, therefore they need a good hiding place close", mentorFullName, studentFullName);
-        // ask user for input
+        
+        Scanner newLocation = new Scanner(System.in);
+        System.out.println("Enter a new place to hide: ");
+        String locationInput = newLocation.nextLine();
+        System.out.println("Enter what fire can be made at that place (from 1 to 10:)");
+        int fireQuality = newLocation.nextInt();
+        System.out.println("Enter how many ppl can see you at that place (from 0 to 3):");
+        int visible = newLocation.nextInt();
+
+
         Yard localYard = new Yard();
-        localYard.addNewLocation("between the cars", 4, 1);
+        localYard.addNewLocation(locationInput, fireQuality, visible);
         System.out.println("They seek for a good location")
         Yard locations = getLocations();
         for(Yard item: locations){
             System.out.println("The available places are:" + item);
         }
-        // ask user for input
-        localYard.setUserChoice(1);
+
+        Scanner userChoice = new Scanner(system.in);
+        System.out.println("plase enter the index of location you want to use: );
+        int place = userChoice.nextInt();
+        localYard.setUserChoice(place);
+
+        boolean success = localYard.calculateResult();
+        if (success){
+            localStudent.setEnergyLevel(200);
+            System.out.print("%s gained 12 gram of alchol. He is very happy now, also gained %d energy.", studentFullName, localStudent.getEnergyLevel());
+        }
+        else{
+            System.out.println("Fail to make some drink, an ugly old lady called the police. You get 56345FT penalty.")
+            localStudent.setEnergyLevel(0);
+            System.out.format("%s student level dropped to %d. He is dead.", studentFullName, localStudent.getEnergyLevel());
+        }
         
+
+
 
 
 
