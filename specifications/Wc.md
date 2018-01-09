@@ -26,11 +26,11 @@ None
 ### `setToiletPaper()`
 Set the value of this variable to a given value.
 
-### `setStinkLevel()`
+### `setStinkLevel(int level)`
 Set the value of this variable to a given value.
 
 ### `setBeauty()` 
-Set the value of this variable to a given value.
+Set the value of this variable to a `true` value.
 
 ### `getToiletPaper()` 
 Return with the value of the `toiletPaper`.

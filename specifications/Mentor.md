@@ -14,10 +14,10 @@ Person
 
 ### `Mentor(String firstName, String lastName, int yearOfBirth, String gender, int energyLevel, String nickname)`
 
-super(firstName, lastName, yearOfBirth, gender, nickname, energyLevel)
+super(firstName, lastName, yearOfBirth, gender, energyLevel, nickname)
 
 ## Instance Methods
 
-### `Mentor nickname()`
+### `Mentor getNickname()`
 
 Get the mentor secret nickname between the students

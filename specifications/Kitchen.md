@@ -33,6 +33,6 @@ Set the value of `clean` to false.
 
 Set the kitchen condition to true.
 
-### `feedThePerson()`
+### `void feedThePerson()`
 
-The person get a random food from a random location.
+Randomize a number, use it the get element from that index from the `food` and `foodFrom` array. Then print the result.

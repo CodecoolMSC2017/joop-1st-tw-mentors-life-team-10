@@ -6,7 +6,7 @@
 This class contains the properties of the object on the yard(for the Yard class).
 
 ## Parent class
-None
+Yard
 
 ## Fields
 

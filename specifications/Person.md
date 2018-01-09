@@ -25,18 +25,22 @@ The construnctor takes 5 argument matching to the fields. If firstName and lastN
 
 ## Instance methods
 
-### `Persons getPersonalName()`
+### `Person getPersonalName()`
 
 Return the name for a given person.
 
-### `Persons getPersonAge()`
+### `Person getPersonAge()`
 
 Return the age of a given person.
 
-### `Persons getPersonGander()`
+### `Person getPersonGander()`
 
 Return the gender of the person.
 
-### `Student getEnergyLevel()`
+### `Person getEnergyLevel()`
 
-Get the energy level of the student in programing.
+Return the energy level of the person.
+
+### `Person setEnergyLevel(int level)`
+
+Set `energyLevel` to a new level.

@@ -14,8 +14,8 @@ Person
 
 ### `Student(String firstName, String lastName, int yearOfBirth, String gender, int knowledgeLevel, int energyLevel)`
 
-super(firstName, lastName, yearOfBirth, gender, energyLevel)
-The knowledge level value 100 by default.
+* `super(firstName, lastName, yearOfBirth, gender, energyLevel)` Inherit from the Person class.
+* `int knowledgeLevel` The knowledge level value 100 by default.
 
 ## Instance Methods
 
