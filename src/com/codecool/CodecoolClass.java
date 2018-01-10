@@ -114,6 +114,7 @@ public class CodecoolClass {
         }
         catch (FileNotFoundException expt){
             System.out.println("File not found or cannot be read!");
+            System.exit(1);
         }  
        
 
@@ -144,7 +145,7 @@ public class CodecoolClass {
     public static void main(String[] args){
         CodecoolClass sec;
         sec = createLocal();
-        System.out.println("test sec constructor:" + sec.year);
+        System.out.println("test sec constructor:" + sec.mentors[0].nickname);
        
         CodecoolClass test = new CodecoolClass("miskolc", 2017, "../data/mentors.csv", "../data/students.csv");
         
