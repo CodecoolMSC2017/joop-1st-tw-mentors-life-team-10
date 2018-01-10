@@ -11,6 +11,8 @@ public class CodecoolClass {
     int year;
     Mentor[] mentors;
     Student[] students;
+    String mentorFile = "../data/mentor.csv";
+    String studentFile = "../data/students.csv";
 
     public CodecoolClass(String location, int year, Mentor[] mentors, Student[] students){
         this.location = location;
@@ -22,10 +24,8 @@ public class CodecoolClass {
     public CodecoolClass(String location, int year, String mentorsCsvPath, String studentsCsvPath){
         this.location = location;
         this.year = year;
-        this.mentors = new Mentor[0];
-        readFile(mentorsCsvPath);
-        this.students = new Student[0];
-        readFile(studentsCsvPath);        
+        this.mentors = (Mentor[])readFile(mentorsCsvPath);
+        this.students = (Student[])readFile(studentsCsvPath);         
     }
 
     
@@ -61,7 +61,12 @@ public class CodecoolClass {
         return null;
     }
 
-    public void readFile(String fileCsvPath){
+
+    public Person[] readFile(String fileCsvPath){
+        Student[] stud = new Student[0];
+        Mentor[] ment = new Mentor[0];
+        boolean isFileMentors = false;
+
         //indexes
         final int FIRST_NAME = 0;
         final int LAST_NAME = 1;
@@ -83,24 +88,25 @@ public class CodecoolClass {
                 int energyLevel = Integer.parseInt(splittedData[ENERGY_LEVEL]);
 
                 if (fileCsvPath.contains("mentors.csv")){
-                    mentors = Arrays.copyOf(mentors, mentors.length + EXTEND_WITH_ONE);
-                    mentors[mentors.length - ONE_FOR_LAST_ITEM] = new Mentor(splittedData[FIRST_NAME],
-                                                                                splittedData[LAST_NAME],
-                                                                                age,
-                                                                                splittedData[GENDER],
-                                                                                energyLevel,
-                                                                                splittedData[MENTOR_NICKNAME]); 
+                    isFileMentors = true;
+                    ment = Arrays.copyOf(ment, ment.length + EXTEND_WITH_ONE);
+                    ment[ment.length - ONE_FOR_LAST_ITEM] = new Mentor(splittedData[FIRST_NAME],
+                                                                       splittedData[LAST_NAME],
+                                                                       age,
+                                                                       splittedData[GENDER],
+                                                                       energyLevel,
+                                                                       splittedData[MENTOR_NICKNAME]); 
                 }
                 else if (fileCsvPath.contains("students.csv")){ 
                     int knowledgeLevel = Integer.parseInt(splittedData[STUDENT_KNOWLEDGE]);
 
-                    students = Arrays.copyOf(students, students.length + EXTEND_WITH_ONE);
-                    students[students.length - ONE_FOR_LAST_ITEM] = new Student(splittedData[FIRST_NAME],
-                                                                                splittedData[LAST_NAME],
-                                                                                age,
-                                                                                splittedData[GENDER],
-                                                                                energyLevel,
-                                                                                knowledgeLevel);
+                    stud = Arrays.copyOf(stud, stud.length + EXTEND_WITH_ONE);
+                    stud[stud.length - ONE_FOR_LAST_ITEM] = new Student(splittedData[FIRST_NAME],
+                                                                        splittedData[LAST_NAME],
+                                                                        age,
+                                                                        splittedData[GENDER],
+                                                                        energyLevel,
+                                                                        knowledgeLevel);
                 }
                 else {
                     System.out.println("Wrong filename");
@@ -111,16 +117,22 @@ public class CodecoolClass {
         catch (FileNotFoundException expt){
             System.out.println("File not found or cannot be read!");
         }  
+       
+
+        if (isFileMentors){            
+            return ment;            
+        }
+        else {
+            return stud;
+        }
     }
 
 
     public static CodecoolClass createLocal(){
-        Student[] initialStudent = new Student[1];
-        initialStudent[0] = new Student("Bob", "Ross", 1980, "male", 9, 0);
-        Mentor[] initialMentor = new Mentor[1]; 
-        initialMentor[0] = new Mentor("a", "b", 1, "m", 2, "imi");
-        CodecoolClass newClassroom = new CodecoolClass("Miskolc", 2017, initialMentor, initialStudent);
-
+        CodecoolClass newClassroom;
+        Student[] initialStudent = (Mentor[])readFile(newClassroom.mentorFile);
+        Mentor[] initialMentor = (Student[])readFile(newClassroom.studentFile); 
+        newClassroom = new CodecoolClass("Miskolc", 2017, initialMentor, initialStudent);
         return newClassroom;
     }
 
@@ -130,7 +142,8 @@ public class CodecoolClass {
     public static void main(String[] args){
         CodecoolClass sec;
         sec = createLocal();
-        System.out.println(sec.year);
+        System.out.println("test sec constructor:" + sec.year);
+       
         CodecoolClass test = new CodecoolClass("miskolc", 2017, "../data/mentors.csv", "../data/students.csv");
         
         
