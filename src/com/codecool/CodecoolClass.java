@@ -9,7 +9,7 @@ public class CodecoolClass {
     public String location;
     int year;
     Mentor[] mentors = new Mentor[0];
-    //Student[] students = new Student[0];
+    Student[] students = new Student[0];
     private final int EXTEND_WITH_ONE = 1;
     private final int ONE_FOR_LAST_ITEM = 1;
 
@@ -34,16 +34,16 @@ public class CodecoolClass {
             while (read.hasNext()){
                 
                 String data = read.nextLine();
-                String[] tempArray = data.split(",");
-                int age = Integer.parseInt(tempArray[BIRTH_YEAR]);
-                int energyLevel = Integer.parseInt(tempArray[ENERGY_LEVEL]);
+                String[] splittedData = data.split(",");
+                int age = Integer.parseInt(splittedData[BIRTH_YEAR]);
+                int energyLevel = Integer.parseInt(splittedData[ENERGY_LEVEL]);
                 mentors = Arrays.copyOf(mentors, mentors.length + EXTEND_WITH_ONE);
-                mentors[mentors.length - ONE_FOR_LAST_ITEM] = new Mentor(tempArray[FIRST_NAME],
-                                                                         tempArray[LAST_NAME],
+                mentors[mentors.length - ONE_FOR_LAST_ITEM] = new Mentor(splittedData[FIRST_NAME],
+                                                                         splittedData[LAST_NAME],
                                                                          age,
-                                                                         tempArray[GENDER],
+                                                                         splittedData[GENDER],
                                                                          energyLevel,
-                                                                         tempArray[MENTOR_NICKNAME]);
+                                                                         splittedData[MENTOR_NICKNAME]);
                             
             }
             read.close();
@@ -51,10 +51,32 @@ public class CodecoolClass {
         catch (FileNotFoundException expt){
             System.out.println("Mentor file not found!");
         }        
+    
+        try {
+            File openStudent = new File(studentsCsvPath);
+            Scanner read = new Scanner(openStudent);
+            while (read.hasNext()){
+                String data = read.nextLine();
+                String[] splittedData = data.split(",");
+                int age = Integer.parseInt(splittedData[BIRTH_YEAR]);
+                int energyLevel = Integer.parseInt(splittedData[ENERGY_LEVEL]);
+                int knowledgeLevel = Integer.parseInt(splittedData[STUDENT_KNOWLEDGE]);
+                students = Arrays.copyOf(students, students.length + EXTEND_WITH_ONE);
+                students[students.length - ONE_FOR_LAST_ITEM] = new Student(splittedData[FIRST_NAME],
+                                                                            splittedData[LAST_NAME],
+                                                                            age,
+                                                                            splittedData[GENDER],
+                                                                            energyLevel,
+                                                                            knowledgeLevel);
+            }
+            read.close();
+        }
+        catch (FileNotFoundException excp){
+            System.out.println("Student.csv file not found");
+        }        
     }
-
-
-    /*public Student findStudentByFullName(String fullName){
+    
+    public Student findStudentByFullName(String fullName){
         String[] studentName = fullName.split(" ");
         
         for(Student student: students){
@@ -63,7 +85,7 @@ public class CodecoolClass {
             }
         }
         return null;
-    }*/
+    }
 
 
     public Mentor findMentorByFullName(String fullName){
@@ -79,12 +101,11 @@ public class CodecoolClass {
 
 
     public static void main(String[] args){
-        CodecoolClass test = new CodecoolClass("miskolc", 2017, "../data/mentors.csv", "../data/student.csv");
+        CodecoolClass test = new CodecoolClass("miskolc", 2017, "../data/mentors.csv", "../data/students.csv");
         
-        for (Mentor item: test.mentors){
+        for (Student item: test.students){
             System.out.println(item.gender);
-        }
-        
+        }        
         
     }
 
