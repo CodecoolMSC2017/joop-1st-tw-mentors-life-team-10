@@ -18,6 +18,6 @@ super(firstName, lastName, yearOfBirth, gender, energyLevel, nickname)
 
 ## Instance Methods
 
-### `Mentor getNickname()`
+### `String getNickname()`
 
 Get the mentor secret nickname between the students
