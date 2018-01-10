@@ -1,4 +1,4 @@
-
+package com.codecool;
 
 import java.util.Scanner;
 import java.util.Arrays;
@@ -18,31 +18,75 @@ public class CodecoolClass {
     public CodecoolClass(String location, int year, String mentorsCsvPath, String studentsCsvPath){
         this.location = location;
         this.year = year;
+
+        //indexes
+        final int FIRST_NAME = 0;
+        final int LAST_NAME = 1;
+        final int BIRTH_YEAR = 2;
+        final int GENDER = 3;
+        final int ENERGY_LEVEL = 4;        
+        final int MENTOR_NICKNAME = 5;
+        final int STUDENT_KNOWLEDGE = 5;
+        
         try{
             File openMentor = new File(mentorsCsvPath);
             Scanner read = new Scanner(openMentor);
             while (read.hasNext()){
                 
                 String data = read.nextLine();
-                String[] tempArray = data.split(";");
-                for (String i: tempArray){
-                    System.out.println(i);
-                }
-                int age = Integer.parseInt(tempArray[2]);
-                int energyLevel = Integer.parseInt(tempArray[4]);
-                mentors = Arrays.copyOf(mentors, mentors.length + 1);
-                mentors[mentors.length - 1] = new Mentor(tempArray[0], tempArray[1], age, tempArray[3], energyLevel, tempArray[5]);
-                System.out.format("%d %d %s\n", age, energyLevel, tempArray[0]);            
+                String[] tempArray = data.split(",");
+                int age = Integer.parseInt(tempArray[BIRTH_YEAR]);
+                int energyLevel = Integer.parseInt(tempArray[ENERGY_LEVEL]);
+                mentors = Arrays.copyOf(mentors, mentors.length + EXTEND_WITH_ONE);
+                mentors[mentors.length - ONE_FOR_LAST_ITEM] = new Mentor(tempArray[FIRST_NAME],
+                                                                         tempArray[LAST_NAME],
+                                                                         age,
+                                                                         tempArray[GENDER],
+                                                                         energyLevel,
+                                                                         tempArray[MENTOR_NICKNAME]);
+                            
             }
             read.close();
-            }
-            catch (FileNotFoundException expt){
-                System.out.println("No such file found");
-            }        
+        }
+        catch (FileNotFoundException expt){
+            System.out.println("Mentor file not found!");
+        }        
     }
 
-    public static void main(String[] args){
-        CodecoolClass test = new CodecoolClass("miskolc", 2017, "../../../data/mentors.csv", "../../../data/student.csv");
+
+    /*public Student findStudentByFullName(String fullName){
+        String[] studentName = fullName.split(" ");
+        
+        for(Student student: students){
+            if (student.firstName.equals(studentName[0]) && student.lastName.equals(studentName[1])){
+                return student;
+            }
+        }
+        return null;
+    }*/
+
+
+    public Mentor findMentorByFullName(String fullName){
+        String[] mentorName = fullName.split(" ");
+
+        for(Mentor mentor: mentors){
+            if (mentor.firstName.equals(mentorName[0]) && mentor.lastName.equals(mentorName[1])){
+                return mentor;
+            }           
+        }
+        return null;
     }
+
+
+    public static void main(String[] args){
+        CodecoolClass test = new CodecoolClass("miskolc", 2017, "../data/mentors.csv", "../data/student.csv");
+        
+        for (Mentor item: test.mentors){
+            System.out.println(item.gender);
+        }
+        
+        
+    }
+
 }
 

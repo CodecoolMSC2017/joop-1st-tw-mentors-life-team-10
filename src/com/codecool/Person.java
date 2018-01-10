@@ -1,5 +1,8 @@
 
 
+
+package com.codecool;
+
 public class Person {
 
     public String firstName;
