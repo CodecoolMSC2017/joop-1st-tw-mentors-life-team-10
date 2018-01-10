@@ -11,8 +11,6 @@ public class CodecoolClass {
     int year;
     Mentor[] mentors;
     Student[] students;
-    String mentorFile = "../data/mentor.csv";
-    String studentFile = "../data/students.csv";
 
     public CodecoolClass(String location, int year, Mentor[] mentors, Student[] students){
         this.location = location;
@@ -129,11 +127,15 @@ public class CodecoolClass {
 
 
     public static CodecoolClass createLocal(){
-        CodecoolClass newClassroom;
-        Student[] initialStudent = (Mentor[])readFile(newClassroom.mentorFile);
-        Mentor[] initialMentor = (Student[])readFile(newClassroom.studentFile); 
-        newClassroom = new CodecoolClass("Miskolc", 2017, initialMentor, initialStudent);
-        return newClassroom;
+        Mentor[] ment = new Mentor[0];
+        Student[] st = new Student[0];
+        CodecoolClass newClassroom = new CodecoolClass("Miskolc", 2017, ment, st);
+        String mentorFile = "../data/mentors.csv";
+        String studentFile = "../data/students.csv";
+        Student[] initialStudent = (Student[])newClassroom.readFile(studentFile);
+        Mentor[] initialMentor = (Mentor[])newClassroom.readFile(mentorFile); 
+        CodecoolClass readyClass = new CodecoolClass("Miskolc", 2017, initialMentor, initialStudent);
+        return readyClass;
     }
 
 
