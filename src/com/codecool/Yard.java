@@ -51,7 +51,7 @@ public class Yard{
         int INIT_CHANCE = 50;
         int result;
         //this formula is not tested, change the multipliers/dividers to align the chance for success 
-        result = ((INIT_CHANCE + (currentPlace.getFireQuality() * 5 )) / 2) - (currentPlace.getVisibility() * 5) + (luck * 5);
+        result = ((INIT_CHANCE + (currentPlace.getFireQuality() * 5 )) / 2) - (currentPlace.getVisibility() * 7) + (luck * 10);
         if (result > 50){
             return true;
         }
@@ -86,7 +86,7 @@ public class Yard{
             while (true){
                 System.out.println("How big fire can you make at that place from 0 to 10?");
                 fireLightHardness = scanner.nextInt();
-                if (fireLightHardness > 0 && fireLightHardness < 10){
+                if (fireLightHardness >= 0 && fireLightHardness <= 10){
                     break;
                 }
             }
@@ -99,14 +99,19 @@ public class Yard{
             }            
             
             newYard.addNewLocation(placeName, fireLightHardness, trespassers);
+            newList = newYard.getLocations();
         }
         scanner.close();
-        newList = newYard.getLocations();
+        
         for (HidingPlaces item: newList){
-            System.out.println(item.name);
+            System.out.println("test downloaded new HidingPlace array :: " + item.name);
         }
-        newYard.setUserChoice(newList.length - 1);
-        System.out.println(newList[newList.length - 1].name);
+
+        
+        System.out.println("check set user choice :: " + newList[newList.length - 1].name);
+
+        System.out.println(newYard.calculateResult());
+
         
 
     }
