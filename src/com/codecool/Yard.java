@@ -11,11 +11,12 @@ public class Yard{
         locations[0] = new HidingPlaces("Under a car", 7, 2);
         locations[1] = new HidingPlaces("In the trash", 8, 3);
         locations[2] = new HidingPlaces("Behind Pali bácsi", 6, 2);
+        Random rand = new Random();
         luck = rand.nextInt(5) + 0;
         userChoice = 1;
     }
 
-    HidingPlaces getLocations(){
+    HidingPlaces[] getLocations(){
         return locations;
     }
 
@@ -44,10 +45,9 @@ public class Yard{
     }
 
     boolean calculateResult(){
-        HidingPlace currentPlace = locations[userChoice];
+        HidingPlaces currentPlace = locations[userChoice];
         int INIT_CHANCE = 50;
         int result;
-        int instantFailChance;
         //this formula is not tested, change the multipliers/dividers to align the chance for success 
         result = ((INIT_CHANCE + (currentPlace.getFireQuality() * 5 )) / 2) - (currentPlace.getVisibility() * 5) + (luck * 5);
         if (result > 50){
@@ -55,9 +55,14 @@ public class Yard{
         }
         else {
             return false;
-        }
-        
+        }        
+    }
 
-        
+    public static void main(String[] arg){
+        Yard newYard = new Yard();
+        HidingPlaces[] newList = newYard.getLocations();
+        for (HidingPlaces item: newList){
+            System.out.println(item.name);
+        }
     }
 }
