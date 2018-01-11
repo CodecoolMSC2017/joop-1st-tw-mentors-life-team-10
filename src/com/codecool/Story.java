@@ -6,12 +6,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Story {
 
-    public void waiting(int seconds){
+    public void waiting(){
         try{
-            TimeUnit.SECONDS.sleep(seconds);
+            System.in.read();
         }
         catch (Exception e) {
-            System.out.println("Some error happened during the waiting.");
+            System.out.println("An unknown error has occured.");
             System.exit(2);
         }
     }
@@ -48,11 +48,11 @@ public class Story {
         System.out.println(" -- Let the story begin! -- ");
 
         System.out.format("%s has entered to the Hangar and says Hi!\n" , studentFullName);
-        story.waiting(2);       
+        story.waiting();       
         System.out.format("%s notice him and happily jumps to there as a bunny, then hug him.\n", mentorFullName);
-        story.waiting(4);
+        story.waiting();
         System.out.format("%s mentor notice that %s student`s at %d energy level. That`s too low!\n", mentorFullName, studentFullName, localStudent.getEnergyLevel());
-        story.waiting(11);
+        story.waiting();
         System.out.format("%s bring %s to the kitchen to feed him.\n", mentorFullName, studentFullName);
 
         Kitchen localKitchen = new Kitchen();
@@ -60,42 +60,61 @@ public class Story {
         localKitchen.feedThePerson();
         System.out.println("....Yuck!");
 
+        story.waiting();
         System.out.format("%s mentor feels like he quickly have to use the toilet, so run out.\n", mentorFullName);
         Wc localWc = new Wc("towel");
 
+        story.waiting();
         System.out.format("%s starts to eat like a pig.\n", studentFullName);
         localKitchen.eatLikeAPig();
         localStudent.setEnergyLevel(100);
 
+        story.waiting();
         System.out.format("%s hearing satisfied noises from the toilet.\n", studentFullName);
         localWc.setStinkLevel(9000);
 
+        story.waiting();
         System.out.format("%s mentor finished his act, and streching out for toilet paper...\n", mentorFullName);
         if (localWc.getToiletPaper()){
+            story.waiting();
             System.out.format("%s mentor use the paper.\n", mentorFullName);
         }
         else {
+            story.waiting();
             System.out.format("%s mentor did not found a toilet paper, and start to search replacement obejct while swearing.\n", mentorFullName);
         }
+        story.waiting();
         System.out.format("%s mentor succesfull find a replacement tool: %s.\n", mentorFullName, localWc.getReplacementTool());
+        story.waiting();
         System.out.format("%s mentor step out after done, put back the %s to it's place like nothing happened, and whatch himself in the mirror.\n", mentorFullName, localWc.getReplacementTool());
+        story.waiting();
         System.out.format("%s check himself if beauty enough for teaching.\n", mentorFullName);
         if (!localWc.getBeauty()){
+            story.waiting();
             System.out.format("%s do some make up with his rose red lipstick.\n", mentorFullName);
             localWc.setBeauty();
+            story.waiting();
             System.out.format("%s check himself again. Perfect!\n", mentorFullName);
         }
+        story.waiting();
         System.out.format("%s exits from the toilet.\n", mentorFullName);
+        story.waiting();
         System.out.format("%s student smells something wierd while eating... The stink level is over %d.\n", studentFullName, localWc.getStinkLevel());
+        story.waiting();
         System.out.println("Stops eating.");
         if (!localKitchen.isClean()){
+            story.waiting();
             System.out.format("%s mentor enters the kitchen and see the mess the %s student made!\n", mentorFullName, studentFullName);
+            story.waiting();
             System.out.println("The mentor start to shout and force " + studentFullName + " to clean up.");
             localKitchen.doTheDirtyJob();
             localStudent.setEnergyLevel(5);
         }
+        story.waiting();
         System.out.format("%s mentor see that the student energy level is at %d. That's critically low! Need an emergency operation!\n", mentorFullName, localStudent.getEnergyLevel());
+        story.waiting();
         System.out.println("The mentor quickly bring out his compact emergency destillator from his backpack and a jar of fermented fruit. ");
+        story.waiting();
         System.out.format("%s and %s jump out the window to make some booze. Unfortunately they can't go more far, because they can live without the wifi range more then 30 seconds, therefore they need a good hiding place close.\n", mentorFullName, studentFullName);
         
         Yard newYard = new Yard();
