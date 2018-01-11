@@ -35,13 +35,29 @@ public class Yard{
 
     boolean getAreYouSeen(){
         int res = locations[userChoice].getVisibility();
-        return res;
+        if (res != 0){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     boolean calculateResult(){
-        if(luck < locations[userChoice].getVisibility()){
+        HidingPlace currentPlace = locations[userChoice];
+        int INIT_CHANCE = 50;
+        int result;
+        int instantFailChance;
+        //this formula is not tested, change the multipliers/dividers to align the chance for success 
+        result = ((INIT_CHANCE + (currentPlace.getFireQuality() * 5 )) / 2) - (currentPlace.getVisibility() * 5) + (luck * 5);
+        if (result > 50){
+            return true;
+        }
+        else {
             return false;
         }
-        return true;
+        
+
+        
     }
 }
