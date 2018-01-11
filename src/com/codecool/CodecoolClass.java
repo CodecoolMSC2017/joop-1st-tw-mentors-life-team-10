@@ -128,26 +128,32 @@ public class CodecoolClass {
 
 
     public static CodecoolClass createLocal(){
-        Mentor[] ment = new Mentor[0];
-        Student[] st = new Student[0];
-        CodecoolClass newClassroom = new CodecoolClass("Miskolc", 2017, ment, st);
-        String mentorFile = "../data/mentors.csv";
-        String studentFile = "../data/students.csv";
-        Student[] initialStudent = (Student[])newClassroom.readFile(studentFile);
-        Mentor[] initialMentor = (Mentor[])newClassroom.readFile(mentorFile); 
-        CodecoolClass readyClass = new CodecoolClass("Miskolc", 2017, initialMentor, initialStudent);
-        return readyClass;
+        final String MENTOR_FILE = "../data/mentors.csv";
+        final String STUDENT_FILE = "../data/students.csv";
+        boolean useFirstConstructor = true;
+
+        if (useFirstConstructor){ 
+            Mentor[] nullMentor = new Mentor[0];
+            Student[] nullStudent = new Student[0];
+            CodecoolClass newClassroom = new CodecoolClass("Miskolc", 2017, nullMentor, nullStudent);        
+            Student[] initialStudent = (Student[])newClassroom.readFile(STUDENT_FILE);
+            Mentor[] initialMentor = (Mentor[])newClassroom.readFile(MENTOR_FILE); 
+            CodecoolClass withFirstConstr = new CodecoolClass("Miskolc", 2017, initialMentor, initialStudent);
+            return withFirstConstr;
+        }
+        else {
+            CodecoolClass withSecondConstr = new CodecoolClass("miskolc", 2017, MENTOR_FILE, STUDENT_FILE);
+            return withSecondConstr;
+        }
     }
 
 
 
-
+    // sample for the Stroy.java file later!
     public static void main(String[] args){
-        CodecoolClass sec;
-        sec = createLocal();
-        System.out.println("test sec constructor:" + sec.mentors[0].nickname);
        
-        CodecoolClass test = new CodecoolClass("miskolc", 2017, "../data/mentors.csv", "../data/students.csv");
+        CodecoolClass test = createLocal();
+        System.out.println("test createlocal " + test.location);
         
         
         if (args.length == 2){
