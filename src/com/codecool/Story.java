@@ -140,6 +140,7 @@ public class Story {
         try {
             if (charInput == 'y'){
                 System.out.println("What is the name of your perfect place?");
+                String blank = scanner.nextLine();      // clear the last \n from the buffer
                 String placeName = scanner.nextLine();
                 while (true){
                     System.out.println("How big fire can you make at that place from 0 to 10?");
