@@ -1,7 +1,6 @@
 package com.codecool;
 
 import java.util.Scanner;
-
 import java.util.Arrays;
 import java.lang.Integer;
 import java.io.*;
@@ -31,6 +30,7 @@ public class CodecoolClass {
         final int TWO = 2;
         final int FIRST_NAME = 0;
         final int LAST_NAME = 1;
+
         String[] studentName = fullName.split(" ");
 
         if (studentName.length != TWO){
@@ -51,6 +51,7 @@ public class CodecoolClass {
         final int TWO = 2;
         final int FIRST_NAME = 0;
         final int LAST_NAME = 1;
+
         String[] mentorName = fullName.split(" ");   
 
         if (mentorName.length != TWO){
