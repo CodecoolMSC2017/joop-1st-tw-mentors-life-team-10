@@ -3,8 +3,8 @@ package com.codecool;
 public class HidingPlaces{
 
     public String name;
-    public int fireQuality;
-    public int visibility;
+    private int fireQuality;
+    private int visibility;
 
     HidingPlaces(String name, int fireQuality, int visibility){
         this.name = name;
