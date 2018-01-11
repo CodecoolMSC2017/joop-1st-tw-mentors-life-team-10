@@ -28,15 +28,18 @@ public class CodecoolClass {
 
     
     public Student findStudentByFullName(String fullName){
+        final int TWO = 2;
+        final int FIRST_NAME = 0;
+        final int LAST_NAME = 1;
         String[] studentName = fullName.split(" ");
 
-        if (studentName.length != 2){
+        if (studentName.length != TWO){
             System.out.println("Invalid student name format! Type like this: 'firstname lastname'");
             return null;
         }  
         
         for(Student student: students){
-            if (student.firstName.equals(studentName[0]) && student.lastName.equals(studentName[1])){
+            if (student.firstName.equals(studentName[FIRST_NAME]) && student.lastName.equals(studentName[LAST_NAME])){
                 return student;
             }
         }
@@ -45,14 +48,17 @@ public class CodecoolClass {
 
 
     public Mentor findMentorByFullName(String fullName){
+        final int TWO = 2;
+        final int FIRST_NAME = 0;
+        final int LAST_NAME = 1;
         String[] mentorName = fullName.split(" ");   
 
-        if (mentorName.length != 2){
+        if (mentorName.length != TWO){
             System.out.println("Invalid mentor name format! Type like this: 'firstname lastname'");
             return null;
         }
         for(Mentor mentor: mentors){
-            if (mentor.firstName.equals(mentorName[0]) && mentor.lastName.equals(mentorName[1])){
+            if (mentor.firstName.equals(mentorName[FIRST_NAME]) && mentor.lastName.equals(mentorName[LAST_NAME])){
                 return mentor;
             }           
         }
@@ -130,7 +136,7 @@ public class CodecoolClass {
     public static CodecoolClass createLocal(){
         final String MENTOR_FILE = "../data/mentors.csv";
         final String STUDENT_FILE = "../data/students.csv";
-        boolean useFirstConstructor = true;
+        boolean useFirstConstructor = false;
 
         if (useFirstConstructor){ 
             Mentor[] nullMentor = new Mentor[0];
