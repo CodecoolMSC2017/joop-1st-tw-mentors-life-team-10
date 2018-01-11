@@ -3,6 +3,7 @@ package com.codecool;
 import java.util.Scanner;
 import java.lang.Iterable;
 import java.util.concurrent.TimeUnit;
+import java.util.Arrays;
 
 public class Story {
 
@@ -119,8 +120,8 @@ public class Story {
         
         Yard newYard = new Yard();
         HidingPlaces[] newList = newYard.getLocations();
-        for (HidingPlaces item: newList){
-            System.out.println(item.name);
+        for (int i = 0; i < newList.length; i++){
+            System.out.println((i + 1) + " Available places: " + newList[i].name);
         }
         Scanner scanner = new Scanner(System.in);
         char charInput;
@@ -136,33 +137,39 @@ public class Story {
             }
         }
         
-        if (charInput == 'y'){
-            System.out.println("What is the name of your perfect place?");
-            String placeName = scanner.next();
-            while (true){
-                System.out.println("How big fire can you make at that place from 0 to 10?");
-                fireLightHardness = scanner.nextInt();
-                if (fireLightHardness >= 0 && fireLightHardness <= 10){
-                    break;
+        try {
+            if (charInput == 'y'){
+                System.out.println("What is the name of your perfect place?");
+                String placeName = scanner.nextLine();
+                while (true){
+                    System.out.println("How big fire can you make at that place from 0 to 10?");
+                    fireLightHardness = scanner.nextInt();
+                    if (fireLightHardness >= 0 && fireLightHardness <= 10){
+                        break;
+                    }
                 }
+                while (true) {
+                    System.out.println("How many ppl can notice you in the glory process? (from 0 to 3)");
+                    trespassers = scanner.nextInt();
+                    if (trespassers >= 0 && trespassers <= 3){
+                        break;
+                    }
+                }            
+                
+                newYard.addNewLocation(placeName, fireLightHardness, trespassers);
+                newList = newYard.getLocations();
+                System.out.println("check set user choice :: " + newList[newList.length - 1].name);
             }
-            while (true) {
-                System.out.println("How many ppl can notice you in the glory process? (from 0 to 3)");
-                trespassers = scanner.nextInt();
-                if (trespassers >= 0 && trespassers <= 3){
-                    break;
-                }
-            }            
-            
-            newYard.addNewLocation(placeName, fireLightHardness, trespassers);
-            newList = newYard.getLocations();
-            System.out.println("check set user choice :: " + newList[newList.length - 1].name);
+        }
+        catch (Exception e) {
+            System.out.println("Wrong input!");
         }
         
         
         for (int i = 0; i < newList.length; i++){
             System.out.println((i + 1) + " Available places: " + newList[i].name);
         }
+
         int chooseLocation;
         do {
             System.out.println("Choose a location: ");
