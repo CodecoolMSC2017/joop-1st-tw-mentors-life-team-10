@@ -137,19 +137,21 @@ public class CodecoolClass {
     public static CodecoolClass createLocal(){
         final String MENTOR_FILE = "../data/mentors.csv";
         final String STUDENT_FILE = "../data/students.csv";
+        final String CITY = "Miskolc";
+        final int YEAR = 2019;
         boolean useFirstConstructor = false;
 
         if (useFirstConstructor){ 
             Mentor[] nullMentor = new Mentor[0];
             Student[] nullStudent = new Student[0];
-            CodecoolClass newClassroom = new CodecoolClass("Miskolc", 2017, nullMentor, nullStudent);        
+            CodecoolClass newClassroom = new CodecoolClass(CITY, YEAR, nullMentor, nullStudent);        
             Student[] initialStudent = (Student[])newClassroom.readFile(STUDENT_FILE);
             Mentor[] initialMentor = (Mentor[])newClassroom.readFile(MENTOR_FILE); 
-            CodecoolClass withFirstConstr = new CodecoolClass("Miskolc", 2017, initialMentor, initialStudent);
+            CodecoolClass withFirstConstr = new CodecoolClass(CITY, YEAR, initialMentor, initialStudent);
             return withFirstConstr;
         }
         else {
-            CodecoolClass withSecondConstr = new CodecoolClass("miskolc", 2017, MENTOR_FILE, STUDENT_FILE);
+            CodecoolClass withSecondConstr = new CodecoolClass(CITY, YEAR, MENTOR_FILE, STUDENT_FILE);
             return withSecondConstr;
         }
     }
