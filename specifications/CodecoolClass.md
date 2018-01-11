@@ -45,3 +45,9 @@ it returns the student object. If it doesn't find such a student it returns `nul
 ### `Mentor findMentorByFullName(String fullName)`
 
 It works like `findStudentByFullName` but instead of trying to find and return a `Student` object it returns a `Mentor` instead.
+
+### `Person[] readFile(String fileCsvPath)`
+
+Read the csv files and calls the consturctor from the Student or Mentor class (both of them are subclass of Persons) depending on the csv file's name. Then return an object list.
+
+
