@@ -4,6 +4,6 @@ public class Story {
 
     public static void main(String[] args) {
         CodecoolClass localClass = CodecoolClass.createLocal();
-        System.out.println(localClass);
+        System.out.println(localClass.location);
     }
 }
