@@ -18,7 +18,7 @@ public class Kitchen{
         foodFrom[0] = "the dustbin.";
         foodFrom[1] = "the dark side of the refigrator.";
         foodFrom[2] = "under the table.";
-        foodFrom[3] = "Lindi Imres secret food hide-out."
+        foodFrom[3] = "Lindi Imres secret food hide-out.";
 
         clean = true;
     }
