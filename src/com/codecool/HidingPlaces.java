@@ -12,11 +12,11 @@ public class HidingPlaces{
         this.visibility = visibility;
     }
 
-    int getFireQuality(){
+    public int getFireQuality(){
         return fireQuality;
     }
 
-    int getVisibility(){
+    public int getVisibility(){
         return visibility;
     }
 }
