@@ -1,11 +1,25 @@
 package com.codecool;
+
 import java.util.Scanner;
 import java.lang.Iterable;
+import java.util.concurrent.TimeUnit;
 
 public class Story {
 
+    public void waiting(){
+        try{
+            TimeUnit.SECONDS.sleep(4);
+        }
+        catch (Exception e) {
+            System.out.println("Some error happened during the waiting.");
+            System.exit(2);
+        }
+    }
+    
+
     public static void main(String[] args) {
         CodecoolClass localClass = CodecoolClass.createLocal();
+        Story story = new Story();
 
         if (args.length != 2){
             System.out.println("Error: 2 input argument is needed!");
@@ -33,9 +47,12 @@ public class Story {
 
         System.out.println(" -- Let the story begin! -- ");
 
-        System.out.format("%s has entered to the Hangar and says Hi!\n" , studentFullName);        
+        System.out.format("%s has entered to the Hangar and says Hi!\n" , studentFullName);
+        story.waiting();       
         System.out.format("%s notice him and happily jumps to there as a bunny, then hug him.\n", mentorFullName);
+        story.waiting();
         System.out.format("%s mentor notice that %s student`s at %d energy level. That`s too low!\n", mentorFullName, studentFullName, localStudent.getEnergyLevel());
+        story.waiting();
         System.out.format("%s bring %s to the kitchen to feed him.\n", mentorFullName, studentFullName);
 
         Kitchen localKitchen = new Kitchen();
