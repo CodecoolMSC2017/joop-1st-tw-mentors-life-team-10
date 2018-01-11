@@ -50,8 +50,8 @@ public class Yard{
         HidingPlaces currentPlace = locations[userChoice];
         int INIT_CHANCE = 50;
         int result;
-        //this formula is not tested, change the multipliers/dividers to align the chance for success 
-        result = ((INIT_CHANCE + (currentPlace.getFireQuality() * 5 )) / 2) - (currentPlace.getVisibility() * 7) + (luck * 10);
+        //this formula is not tested, change the multipliers to align the chance for success 
+        result = ((INIT_CHANCE + (currentPlace.getFireQuality() * 5 )) / 2) - (currentPlace.getVisibility() * 6) + (luck * 7);
         if (result > 50){
             return true;
         }
@@ -101,18 +101,36 @@ public class Yard{
             newYard.addNewLocation(placeName, fireLightHardness, trespassers);
             newList = newYard.getLocations();
         }
-        scanner.close();
         
-        for (HidingPlaces item: newList){
-            System.out.println("test downloaded new HidingPlace array :: " + item.name);
+        
+        for (int i = 0; i < newList.length; i++){
+            System.out.println((i + 1) + " Available places: " + newList[i].name);
         }
-
+        int chooseLocation;
+        do {
+            System.out.println("Choose a location: ");
+            chooseLocation = scanner.nextInt();
+        } 
+        while (chooseLocation <= newList.length + 1 && chooseLocation >= newList.length + 1);
+        
+        if (chooseLocation == 0){
+            newYard.setUserChoice(newList.length - 1);
+        }
+        else {
+            newYard.setUserChoice(chooseLocation - 1);
+        }
         
         System.out.println("check set user choice :: " + newList[newList.length - 1].name);
 
-        System.out.println(newYard.calculateResult());
+        boolean haveBoose = newYard.calculateResult();
+        if (haveBoose){
+            System.out.println("Success, the stuednt gained 16.5g alchol. now he is super happy!");
+        }
+        else{
+            System.out.println("Failure! Some nasty old lady called the police, your penalty is 53672Ft plus you don't have alcohol now. Outstanding!");
+        }
 
         
-
+        scanner.close();
     }
 }
