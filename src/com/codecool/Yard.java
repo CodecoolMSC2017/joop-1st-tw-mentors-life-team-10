@@ -5,14 +5,18 @@ import java.lang.Character;
 
 public class Yard{
 
-    private HidingPlaces[] locations = new HidingPlaces[3];
+    private HidingPlaces[] locations = new HidingPlaces[6];
     private int luck;
     private int userChoice;
 
     Yard(){
         locations[0] = new HidingPlaces("Under a car", 7, 2);
-        locations[1] = new HidingPlaces("In the trash", 8, 3);
-        locations[2] = new HidingPlaces("Behind Pali bácsi", 6, 2);
+        locations[1] = new HidingPlaces("In the trashcan", 4, 1);
+        locations[2] = new HidingPlaces("On the treetop", 6, 2);
+        locations[3] = new HidingPlaces("In the sewers", 2, 0);
+        locations[4] = new HidingPlaces("Next to the main gas pipe", 9, 3);
+        locations[5] = new HidingPlaces("Behind the mentor", 5, 2);
+
         Random rand = new Random();
         luck = rand.nextInt(5) + 0;
         userChoice = 1;
