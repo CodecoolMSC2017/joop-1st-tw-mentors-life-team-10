@@ -7,6 +7,24 @@ This file should contain the description of your team's story to tell about a me
 ## import
 
 `import java.util.Scanner`
+`import java.util.Scanner;`
+`import java.lang.Iterable;`
+`import java.util.concurrent.TimeUnit;`
+
+## Instrance field
+
+Nothing to declare.
+
+## Constructor
+
+Default.
+
+## Instance methods
+
+### Public void wainting()
+
+Pause the programm running with the given seconds.
+
 
 ## Reading data from file
 
