@@ -82,9 +82,9 @@ public class Story {
         localYard.addNewLocation(locationInput, fireQuality, visible);
         System.out.println("They seek for a good location.");
         System.out.println("The available places are: ");
-        Hidinplace[] locations = localYard.getLocations();
-        for(Yard item: locations){
-            System.out.println("* " + item);
+        HidingPlaces[] locations = localYard.getLocations();
+        for(HidingPlaces item: locations){
+            System.out.println("* " + item.name);
         }
     }
 
