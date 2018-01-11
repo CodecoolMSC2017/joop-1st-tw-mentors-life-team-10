@@ -141,6 +141,18 @@ public class CodecoolClass {
         final int YEAR = 2019;
         boolean useFirstConstructor = false;
 
+        File checkMentor = new File(MENTOR_FILE);
+        File checkStudent = new File(STUDENT_FILE);
+
+        if (!checkMentor.exists()){
+            System.out.println("No mentors.csv file found at the given path!");
+            System.exit(1);
+        }
+        if (!checkStudent.exists()){
+            System.out.println("No students.csv file found at the given path!");
+            System.exit(1);
+        }
+
         if (useFirstConstructor){ 
             Mentor[] nullMentor = new Mentor[0];
             Student[] nullStudent = new Student[0];
