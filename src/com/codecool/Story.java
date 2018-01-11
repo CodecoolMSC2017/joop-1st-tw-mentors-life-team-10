@@ -27,11 +27,13 @@ public class Story {
             System.out.println("No student named " + studentFullName + " was found.");
             System.exit(1);
         }
-        
+
         System.out.println("Mentor " + mentorFullName + "was found, cool! ");
         System.out.println("Student " + studentFullName + " was found,cool!");
 
-        System.out.format("%s has entered to the Hangar and says Hi!\n" , studentFullName);
+        System.out.println(" -- Let the story begin! -- ");
+
+        System.out.format("%s has entered to the Hangar and says Hi!\n" , studentFullName);        
         System.out.format("%s notice him and happily jumps to there as a bunny, then hug him.\n", mentorFullName);
         System.out.format("%s mentor notice that %s student`s at %d energy level. That`s too low!\n", mentorFullName, studentFullName, localStudent.getEnergyLevel());
         System.out.format("%s bring %s to the kitchen to feed him.\n", mentorFullName, studentFullName);
@@ -78,23 +80,7 @@ public class Story {
         System.out.format("%s mentor see that the student energy level is at %d. That's critically low! Need an emergency operation!\n", mentorFullName, localStudent.getEnergyLevel());
         System.out.println("The mentor quickly bring out his compact emergency destillator from his backpack and a jar of fermented fruit. ");
         System.out.format("%s and %s jump out the window to make some booze. Unfortunately they can't go more far, because they can live without the wifi range more then 30 seconds, therefore they need a good hiding place close.\n", mentorFullName, studentFullName);
-        /*Scanner newLocation = new Scanner(System.in);
-        System.out.println("Enter a new place to hide: ");
-        String locationInput = newLocation.nextLine();
-        System.out.println("Enter what fire can be made at that place (from 1 to 10:)");
-        int fireQuality = newLocation.nextInt();
-        System.out.println("Enter how many ppl can see you at that place (from 0 to 3):");
-        int visible = newLocation.nextInt();
-
-        Yard localYard = new Yard();
-        localYard.addNewLocation(locationInput, fireQuality, visible);
-        System.out.println("They seek for a good location.");
-        System.out.println("The available places are: ");
-        HidingPlaces[] locations = localYard.getLocations();
-        for(HidingPlaces item: locations){
-            System.out.println("* " + item.name);
-        }*/
-
+        
         Yard newYard = new Yard();
         HidingPlaces[] newList = newYard.getLocations();
         for (HidingPlaces item: newList){
