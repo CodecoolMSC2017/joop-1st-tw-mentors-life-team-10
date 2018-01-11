@@ -17,4 +17,24 @@ public class Person {
         this.energyLevel = energyLevel;
 
     }
+
+    String getPersonalName(){
+        return firstName + " " + lastName;
+    }
+
+    int getPersonAge(){
+        return yearOfBirth;
+    }
+
+    String getPersonGender(){
+        return gender;
+    }
+
+    int getEnergyLevel(){
+        return energyLevel;
+    }
+
+    void setEnergyLevel(int level){
+        energyLevel = level;
+    }
 }
