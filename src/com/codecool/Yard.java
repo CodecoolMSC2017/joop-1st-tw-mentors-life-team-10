@@ -1,5 +1,7 @@
 package com.codecool;
 import java.util.Random;
+import java.util.Scanner;
+import java.lang.Character;
 
 public class Yard{
 
@@ -23,10 +25,10 @@ public class Yard{
     void addNewLocation(String name, int fireQuality, int visibility){
         HidingPlaces newHp = new HidingPlaces(name, fireQuality, visibility);
         HidingPlaces[] tempLocations = new HidingPlaces[locations.length + 1];
-        for(int i = 0; i < tempLocations.length; i++){
+        for(int i = 0; i < locations.length; i++){
              tempLocations[i] = locations[i];
         }
-        tempLocations[locations.length] = newHp;
+        tempLocations[tempLocations.length - 1] = newHp;
         locations = tempLocations;
     }
 
@@ -64,5 +66,48 @@ public class Yard{
         for (HidingPlaces item: newList){
             System.out.println(item.name);
         }
+        Scanner scanner = new Scanner(System.in);
+        char charInput;
+        int fireLightHardness;
+        int trespassers;
+
+        while (true) {
+            System.out.println("Do you see a better location? ('y' or 'n')");
+            charInput = scanner.next().charAt(0);
+            charInput = Character.toLowerCase(charInput);
+            if (charInput == 'y' || charInput == 'n'){
+                break;
+            }
+        }
+        
+        if (charInput == 'y'){
+            System.out.println("What is the name of your perfect place?");
+            String placeName = scanner.next();
+            while (true){
+                System.out.println("How big fire can you make at that place from 0 to 10?");
+                fireLightHardness = scanner.nextInt();
+                if (fireLightHardness > 0 && fireLightHardness < 10){
+                    break;
+                }
+            }
+            while (true) {
+                System.out.println("How many ppl can notice you in the glory process? (from 0 to 3)");
+                trespassers = scanner.nextInt();
+                if (trespassers >= 0 && trespassers <= 3){
+                    break;
+                }
+            }            
+            
+            newYard.addNewLocation(placeName, fireLightHardness, trespassers);
+        }
+        scanner.close();
+        newList = newYard.getLocations();
+        for (HidingPlaces item: newList){
+            System.out.println(item.name);
+        }
+        newYard.setUserChoice(newList.length - 1);
+        System.out.println(newList[newList.length - 1].name);
+        
+
     }
 }
