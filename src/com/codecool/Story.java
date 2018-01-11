@@ -6,9 +6,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Story {
 
-    public void waiting(){
+    public void waiting(int seconds){
         try{
-            TimeUnit.SECONDS.sleep(4);
+            TimeUnit.SECONDS.sleep(seconds);
         }
         catch (Exception e) {
             System.out.println("Some error happened during the waiting.");
@@ -48,11 +48,11 @@ public class Story {
         System.out.println(" -- Let the story begin! -- ");
 
         System.out.format("%s has entered to the Hangar and says Hi!\n" , studentFullName);
-        story.waiting();       
+        story.waiting(2);       
         System.out.format("%s notice him and happily jumps to there as a bunny, then hug him.\n", mentorFullName);
-        story.waiting();
+        story.waiting(4);
         System.out.format("%s mentor notice that %s student`s at %d energy level. That`s too low!\n", mentorFullName, studentFullName, localStudent.getEnergyLevel());
-        story.waiting();
+        story.waiting(11);
         System.out.format("%s bring %s to the kitchen to feed him.\n", mentorFullName, studentFullName);
 
         Kitchen localKitchen = new Kitchen();
