@@ -153,35 +153,4 @@ public class CodecoolClass {
             return withSecondConstr;
         }
     }
-
-
-
-    // sample for the Stroy.java file later!
-    public static void main(String[] args){
-       
-        CodecoolClass test = createLocal();
-        System.out.println("test createlocal " + test.location);
-        
-        
-        if (args.length == 2){
-            if (test.findMentorByFullName(args[0]) != null){
-                Mentor nameTest = test.findMentorByFullName(args[0]);
-                System.out.println("mentor found:" + nameTest.firstName);
-            }
-            
-            if (test.findStudentByFullName(args[1]) != null){
-                Student nTest = test.findStudentByFullName(args[1]);                
-                System.out.println("student found: " + nTest.lastName);
-            }
-            else {
-                System.out.println("name not found");
-            }
-        }
-        else {
-            System.out.println("Error: 2 input argument is needed!");
-        }
-        
-    }
-
 }
-

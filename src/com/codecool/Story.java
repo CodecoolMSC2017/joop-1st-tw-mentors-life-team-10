@@ -6,6 +6,12 @@ public class Story {
 
     public static void main(String[] args) {
         CodecoolClass localClass = CodecoolClass.createLocal();
+
+        if (args.length != 2){
+            System.out.println("Error: 2 input argument is needed!");
+            System.exit(1);
+        }
+
         String mentorFullName = args[0];
         String studentFullName = args[1];
 
@@ -16,10 +22,12 @@ public class Story {
         }
 
         Student localStudent = localClass.findStudentByFullName(studentFullName);
+
         if(localStudent == null){
             System.out.println("No student named " + studentFullName + " was found.");
             System.exit(1);
         }
+        
         System.out.println("Mentor " + mentorFullName + "was found, cool! ");
         System.out.println("Student " + studentFullName + " was found,cool!");
 
@@ -126,6 +134,7 @@ public class Story {
             
             newYard.addNewLocation(placeName, fireLightHardness, trespassers);
             newList = newYard.getLocations();
+            System.out.println("check set user choice :: " + newList[newList.length - 1].name);
         }
         
         
@@ -144,9 +153,8 @@ public class Story {
         }
         else {
             newYard.setUserChoice(chooseLocation - 1);
-        }
+        }        
         
-        System.out.println("check set user choice :: " + newList[newList.length - 1].name);
 
         boolean haveBoose = newYard.calculateResult();
         if (haveBoose){
