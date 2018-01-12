@@ -188,10 +188,13 @@ public class Story {
 
         boolean haveBoose = newYard.calculateResult();
         if (haveBoose){
-            System.out.println("Success, the stuednt gained 16.5g alchol. now he is super happy!");
+            localStudent.setEnergyLevel(100);
+            System.out.format("\nSuccess, the stuednt gained 16.5g alchol. %s energy level is now %d!\n", studentFullName, localStudent.getEnergyLevel());
         }
         else{
-            System.out.println("Failure! Some nasty old lady called the police, your penalty is 53672Ft plus you don't have alcohol now. Outstanding!");
+            localStudent.setEnergyLevel(0);
+            System.out.println("Failure! Some nasty old lady called the police, your penalty is 53672Ft plus you don't have alcohol now.");
+            System.out.println("The studen energy level dropped to " + localStudent.getEnergyLevel() + ":(");
         }
 
         
