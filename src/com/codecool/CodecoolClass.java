@@ -94,6 +94,7 @@ public class CodecoolClass {
 
                 if (fileCsvPath.contains("mentors.csv")){
                     isFileMentors = true;
+
                     ment = Arrays.copyOf(ment, ment.length + EXTEND_WITH_ONE);
                     ment[ment.length - ONE_FOR_LAST_ITEM] = new Mentor(splittedData[FIRST_NAME],
                                                                        splittedData[LAST_NAME],
@@ -120,10 +121,9 @@ public class CodecoolClass {
             read.close();
         }
         catch (FileNotFoundException expt){
-            System.out.println("File not found or cannot be read!");
+            System.out.println("Objects could not be make!");
             System.exit(1);
-        }  
-       
+        }       
 
         if (isFileMentors){            
             return ment;            
